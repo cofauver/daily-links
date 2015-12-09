@@ -15,10 +15,13 @@
     <div class="col-lg-12">
       <h1 class="page-header">Archive:</h1>
         <ul class="list-group">
-          <li class="list-group-item" ng-repeat="link in linkList">
-              <strong>{{link.title}}</strong><br>
-              <span>{{link.summary}}</span>
-              <a ng-href="{{link.url}}" class="text-muted">{{link.url}}</a>
+          <li class="list-group-item" ng-repeat="(date, list) in linkList">
+            <h3>{{date}}</h3>
+                <div ng-repeat="link in list">
+                <strong>{{link.title}}</strong><br>
+                <span>{{link.summary}}</span>
+                <a ng-href="{{link.url}}" class="text-muted">{{link.url}}</a>
+              </div>
           </li>
         </ul>
       </ul>

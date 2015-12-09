@@ -1,27 +1,24 @@
 'use strict';
 
-angular.module('dailyLinksApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
+angular.module('dailyLinksApp').controller('MainCtrl', function ($scope, $http, socket) {
+  $scope.linkList = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
-    });
+  $http.get('/api/links').success(function (links) {
+    // $scope.linkList = links;
+    $scope.linkList = organizeByDate(links);
+  });;
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
+  var organizeByDate = function(list){
+    var dateOrganizedList = {};
+    angular.forEach(list, function(linkObject){
+      if(dateOrganizedList[linkObject.date]){
+        dateOrganizedList[linkObject.date].push(linkObject);
+      }else{
+        dateOrganizedList[linkObject.date] = [linkObject];
       }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
-
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
-
-    $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
     });
-  });
+    return dateOrganizedList;
+  };
+
+});
+//# sourceMappingURL=main.controller.js.map

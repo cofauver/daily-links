@@ -19,6 +19,7 @@ angular.module('dailyLinksApp')
     $scope.todaysDate = days[today.getDay()] + ' ' + months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
 
     $scope.addNewLink = function(title, summary, url){
+      console.log($scope.todaysDate);
       var link = {title: title, summary: summary, url: url, date: $scope.todaysDate};
       
       $http.post('/api/links', link).success(function(result){

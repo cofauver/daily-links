@@ -5,8 +5,9 @@ var mongoose = require('mongoose'),
 
 var LinkSchema = new Schema({
   title: String,
-  summmary: String,
-  url: String
+  summary: String,
+  url: String,
+  date: String
 });
 
 module.exports = mongoose.model('Link', LinkSchema);
