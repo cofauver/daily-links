@@ -35,7 +35,9 @@ angular.module('dailyLinksApp')
     };
 
     $scope.submitTodaysLinks = function(){
-
+      $http.post('/email').success(function(result){
+        console.log(result);
+      });
     };
 
     $scope.delete = function(user) {
