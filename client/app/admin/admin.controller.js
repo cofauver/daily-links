@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dailyLinksApp')
-  .controller('AdminCtrl', function ($scope, $http, socket, Auth, User /*, Link*/) {
+  .controller('AdminCtrl', function ($scope, $http, socket, Auth, User, DateService, /*, Link*/) {
 
     $http.get('/api/links').success(function (links) {
       $scope.linkList = links;
@@ -13,10 +13,8 @@ angular.module('dailyLinksApp')
     $scope.allLinks /*= Link.query()*/;
     $scope.todaysLinks = [];
 
-    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    var today = new Date(Date.now());
-    $scope.todaysDate = days[today.getDay()] + ' ' + months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
+    
+    $scope.todaysDate = DateService.getTodaysDateString();
 
     $scope.addNewLink = function(title, summary, url){
       console.log($scope.todaysDate);

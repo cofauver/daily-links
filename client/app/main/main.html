@@ -3,8 +3,11 @@
 <header class="hero-unit" id="banner">
   <div class="container">
     <h1>Today's Links</h1>
+    <h3>{{todaysDate}}</h3>
     <div ng-repeat="link in todaysLinks">
-      <a ng-href="link.url">{{link.title}}</a>
+      <strong>{{link.title}}</strong><br>
+      <span>{{link.summary}}</span>
+      <a ng-href="{{link.url}}" class="text-muted">{{link.url}}</a>
     </div>
 
     
@@ -17,7 +20,7 @@
         <ul class="list-group">
           <li class="list-group-item" ng-repeat="(date, list) in linkList">
             <h3>{{date}}</h3>
-                <div ng-repeat="link in list">
+              <div ng-repeat="link in list">
                 <strong>{{link.title}}</strong><br>
                 <span>{{link.summary}}</span>
                 <a ng-href="{{link.url}}" class="text-muted">{{link.url}}</a>
