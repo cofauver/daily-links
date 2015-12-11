@@ -8,7 +8,7 @@ var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
         user: 'cofauver@gmail.com',
-        pass: //
+        pass: 'fakepassword'
     }
 });
 
