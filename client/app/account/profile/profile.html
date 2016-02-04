@@ -2,7 +2,7 @@
 
 <header class="hero-unit" id="banner">
   <div class="container">
-    <h1>{{todaysDate}}</h1>
+    <h1>{{profileUser.name}}</h1>
     <div ng-repeat="link in todaysLinks">
       <strong>{{link.title}}</strong><br>
       <span>{{link.summary}}</span>
@@ -35,6 +35,6 @@
   <div class="container">
       <p>Daily Links | site by
         <a href="https://github.com/cofauver">@cofauver</a> |
-         curation by You</p>
+         curation by {{}}</p>
   </div>
 </footer>

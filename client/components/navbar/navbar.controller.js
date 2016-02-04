@@ -12,6 +12,8 @@ angular.module('dailyLinksApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
+    $scope.currentUser = Auth.getCurrentUser();
+
     $scope.logout = function() {
       Auth.logout();
       $location.path('/login');

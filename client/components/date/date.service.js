@@ -10,7 +10,7 @@ angular.module('dailyLinksApp')
     	getTodaysDateString: function(){
     		var today = new Date(Date.now());
     		return days[today.getDay()] + ' ' + months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
-    	},
+    	}
 
     }
     

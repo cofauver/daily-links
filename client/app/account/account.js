@@ -18,5 +18,10 @@ angular.module('dailyLinksApp')
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',
         authenticate: true
+      })
+      .state('profile', {
+        url: '/profile/:name',
+        templateUrl: 'app/account/profile/profile.html',
+        controller: 'ProfileCtrl'
       });
   });
